@@ -1,0 +1,50 @@
+/* src/components/FloatingHearts.css */
+
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  opacity: 0.8;
+  animation: float 6s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.5));
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+  }
+}
+
+@media (max-width: 480px) {
+  .heart-container {
+    z-index: 0; /* Push hearts behind form */
+  }
+
+  .form-container {
+    z-index: 3; /* Make sure form stays on top */
+  }
+}

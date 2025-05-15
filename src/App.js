@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NameGate from "./components/NameGate";
+import NicknamePage from "./components/NicknamePage";
+import CakePage from "./components/CakePage";
+import MessagePage from "./components/MessagePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<NameGate />} />
+        <Route path="/nickname" element={<NicknamePage />} />
+        <Route path="/cake" element={<CakePage />} />
+        <Route path="/message" element={<MessagePage />} />
+      </Routes>
+    </Router>
   );
 }
 
